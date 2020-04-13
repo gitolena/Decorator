@@ -1,0 +1,27 @@
+def decorator(my_func):
+    def wrapper():
+        title = 'CEO Red Bull Inc. Mr. John Bigbull.\n'
+        decorator_result = title + my_func()
+        return decorator_result
+    return wrapper
+
+def decorator_sign(my_function):
+    def wrapper():
+        signature = '\n ' \
+                    'Best Regards, \n' \
+                    'Olena Khrushch'
+        decorator_result =  my_function() + signature
+        return decorator_result
+    return (wrapper)
+
+@decorator
+@decorator_sign
+
+def vacation_request():
+    request_type = input("Choose of the vacation types: Vacation, Sick_leave or Day_off: ")
+    from_date = input("Enter date from: ")
+    to_date = input("Enter date to: ")
+    message = f'Hi John. I need a {request_type} from {from_date} to {to_date}.\n'
+    return message
+print(vacation_request())
+
